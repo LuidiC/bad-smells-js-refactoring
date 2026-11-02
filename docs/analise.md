@@ -1,6 +1,6 @@
 # Análise inicial e decisões
 
-Autor: Luidi Cadete Silva. Matrícula: pendente de fornecimento.
+Autor: Luidi Cadete Silva. Matrícula: 804945. Ano: 2026.
 
 Base: `CleitonSilvaT/bad-smells-js-refactoring`, commit
 `39d39f9ad52c6c508239cfe0b968187ad086e654`.
@@ -8,7 +8,7 @@ Base: `CleitonSilvaT/bad-smells-js-refactoring`, commit
 ## Situação preexistente
 
 - O teste original está em `tests/`, embora o PDF e o README mencionem `__tests__/`.
-  Ele será preservado no local existente e a cópia será criada em `__tests__/`.
+  Ele foi preservado no local existente e a cópia foi criada em `__tests__/`.
 - A configuração original usa complexidade 5. A configuração deste trabalho usa 15,
   conforme o PDF, tanto antes quanto depois da refatoração. Nenhuma regra foi desativada.
 - A base usa ES Modules, Jest 29 e `transform: {}`, mas o script original chama apenas
@@ -58,9 +58,11 @@ ESLint 8.57.1, SonarJS 0.21.0 e Jest 29.7.0. O ESLint 8 está fora de suporte;
 a escolha preserva o formato didático exigido, e não é uma recomendação para novos
 produtos. O preset Babel já existia no projeto e não foi adicionado para esta solução.
 
-## Pendências de entrega
+## Situação da entrega
 
-A matrícula ainda não foi fornecida. O relatório será identificado como preliminar.
-O trabalho não satisfaz a exigência de 100% dos testes originais, por defeito preexistente.
-A branch de desenvolvimento poderá ser publicada, mas não será integrada à principal
-nem apresentada como entrega final sem aprovação do usuário.
+O relatório acadêmico definitivo está em `../output/pdf/relatorio-final.pdf`, com quatro
+páginas e matrícula 804945. A evidência inicial foi preservada na forma auditada,
+sem simular uma captura de terminal ou reconstruir os resultados.
+O trabalho não satisfaz a exigência de 100% dos testes originais, por defeito preexistente;
+o tratamento dessa limitação depende de orientação do professor.
+A branch está publicada e aguarda autorização para integração à principal.

@@ -1,6 +1,6 @@
 # Auditoria técnica - versão de desenvolvimento
 
-Autor: Luidi Cadete Silva. Matrícula não fornecida. Data: 02/11/2026 (America/Sao_Paulo).
+Autor: Luidi Cadete Silva. Matrícula: 804945. Data: 02/11/2026 (America/Sao_Paulo).
 A base está em `39d39f9`; a implementação validada está em `2383b83`.
 Os manifestos registram os commits de referência e os comandos exatos.
 
@@ -45,10 +45,10 @@ configuração idêntico nas análises. Os resultados estão em
 | Suíte refatorada aprovada | 5/5 | Atendido |
 | Suíte original aprovada | 4/5; defeito preexistente | Não atendido na base preservada |
 | Suíte completa aprovada | 9/10; uma falha original | Não atendido na base preservada |
-| PDF de 2-4 páginas | Quatro páginas, evidências reais, antes/depois e conclusão | Preliminar |
-| Capa completa | Nome, título e disciplina; matrícula ausente | Pendente de matrícula |
+| PDF de 2-4 páginas | output/pdf/relatorio-final.pdf; quatro páginas, evidências reais, antes/depois e conclusão | Atendido |
+| Capa completa | Instituição, curso, disciplina, título, Luidi Cadete Silva, matrícula 804945 e ano 2026 | Atendido |
 | Publicação no fork | Branch publicada e consultada pelo plugin GitHub; main permanece em 39d39f9 | Atendido |
-| Entrega final aprovada | Não apresentada como concluída | Pendente de aprovação |
+| Integração na main | Mantida na branch de desenvolvimento | Aguarda auditoria independente e autorização |
 
 ## Limitações e decisões
 
@@ -56,8 +56,8 @@ A correção de `<tr >` para `<tr>` existe somente no refatorado. `npm test` ret
 pela falha original; o lint global retorna 1 por incluir o original preservado.
 Não se desativaram regras, não se excluíram testes nem se alteraram expectativas.
 O ESLint 8 é legado e emite aviso na instalação; não se aplicou audit fix --force.
-A assistência de IA foi declarada no README. O relatório permanece preliminar até
-receber matrícula e aprovação do aluno.
+A assistência de IA foi declarada no README e no relatório definitivo.
+A limitação da suíte original permanece explícita, sem declaração de conformidade integral.
 
 ## Auditoria de publicação e reprodução
 
@@ -73,3 +73,26 @@ utilizada nas medições. Não era um defeito da refatoração.
 checkouts. A revisão incluiu arquivos publicados, integridade dos originais, ausência
 de credenciais nos novos textos e exclusão de node_modules, caches e temporários.
 O relatório foi renderizado com Poppler e as quatro páginas foram inspecionadas.
+
+## Revisão acadêmica definitiva
+
+Dados conferidos: Luidi Cadete Silva, matrícula 804945, Engenharia de Software,
+Testes de Software, PUC Minas, 2026. O documento definitivo é
+[relatorio-final.pdf](../output/pdf/relatorio-final.pdf); possui exatamente quatro
+páginas, todas renderizadas com Poppler e inspecionadas visualmente. A capa foi
+limpa, os nomes dos smells foram destacados na tabela e as observações
+administrativas foram removidas do PDF. A versão anterior permanece no histórico Git.
+
+A captura original foi mantida com sua identificação correta de página local
+exibindo stdout/stderr reais; não foi apresentada como captura nativa de terminal.
+Não se alteraram a imagem, a configuração de lint nem os registros baseline.
+
+Antes da geração definitiva, a suíte completa foi executada novamente: 9 aprovados
+e 1 reprovado em duas suítes. Foram confirmados 4/5 testes originais, 5/5 refatorados,
+zero erros/avisos de lint no refatorado e integridade dos arquivos protegidos. Uma
+cópia temporária da auditoria anterior estava duplicando a descoberta de testes;
+ela foi removida e os comandos foram repetidos sem alterações de configuração.
+
+A lógica de produção, os testes e suas expectativas permaneceram inalterados nesta
+etapa. A integração à main aguarda autorização após a auditoria independente.
+A limitação acadêmica dos testes originais permanece dependente de orientação do professor.

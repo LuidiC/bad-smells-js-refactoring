@@ -64,7 +64,7 @@ Os arquivos originais de produção e testes não fazem parte da lista porque fo
 | A | [docs/evidencias/incremental/testes-refatorados.json](../docs/evidencias/incremental/testes-refatorados.json) |
 | A | [docs/evidencias/incremental/testes-refatorados.stderr.txt](../docs/evidencias/incremental/testes-refatorados.stderr.txt) |
 | A | [docs/evidencias/incremental/testes-refatorados.stdout.txt](../docs/evidencias/incremental/testes-refatorados.stdout.txt) |
-| A | [output/pdf/relatorio-preliminar.pdf](../output/pdf/relatorio-preliminar.pdf) |
+| A | [output/pdf/relatorio-final.pdf](../output/pdf/relatorio-final.pdf) |
 | A | [package-lock.json](../package-lock.json) |
 | M | [package.json](../package.json) |
 | A | [scripts/audit-behavior.mjs](../scripts/audit-behavior.mjs) |

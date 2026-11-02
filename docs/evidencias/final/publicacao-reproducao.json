@@ -25,5 +25,45 @@
     }
   },
   "reportPages": 4,
-  "reportStatus": "preliminar: matrícula ausente e aprovação pendente"
+  "reportStatus": "definitivo; quatro páginas renderizadas e inspecionadas visualmente",
+  "reportFile": "output/pdf/relatorio-final.pdf",
+  "author": {
+    "fullName": "Luidi Cadete Silva",
+    "studentId": "804945",
+    "year": 2026
+  },
+  "academicReview": {
+    "referenceCommit": "e40d84ccd731f21ff6dc1ab213834105757d497c",
+    "reportSha256": "34e02055f59b6a215eacd575c8654ef7997724b8e7fd678ad54f0d06aaf3f44a",
+    "rendering": "Poppler, 125 dpi; páginas 1-4 inspecionadas",
+    "visualPagesReviewed": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "preliminaryLabelsAbsent": true,
+    "baselineScreenshotRetained": true,
+    "tests": [
+      {
+        "suite": "testes-originais",
+        "passed": 4,
+        "failed": 1,
+        "total": 5
+      },
+      {
+        "suite": "testes-refatorados",
+        "passed": 5,
+        "failed": 0,
+        "total": 5
+      },
+      {
+        "suite": "testes-completos",
+        "passed": 9,
+        "failed": 1,
+        "total": 10
+      }
+    ],
+    "mainMergePerformed": false
+  }
 }

@@ -1,4 +1,4 @@
-"""Gera relatório preliminar; matrícula ausente nunca é inventada."""
+"""Gera o relatório acadêmico definitivo a partir das evidências verificadas."""
 import json
 from pathlib import Path
 from xml.sax.saxutils import escape
@@ -12,7 +12,7 @@ from reportlab.platypus import Paragraph, Table, TableStyle
 from reportlab.lib.utils import ImageReader
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "output/pdf/relatorio-preliminar.pdf"
+OUT = ROOT / "output/pdf/relatorio-final.pdf"
 OUT.parent.mkdir(parents=True, exist_ok=True)
 for name, filename in [("Arial", "arial.ttf"), ("ArialBold", "arialbd.ttf"), ("Code", "consola.ttf")]:
     pdfmetrics.registerFont(TTFont(name, str(Path("C:/Windows/Fonts") / filename)))
@@ -23,6 +23,9 @@ def data(name):
 quality = data("auditoria-qualidade.json")
 behavior = data("auditoria-comportamento.json")
 tests = [data(name + ".json") for name in ["testes-originais", "testes-refatorados", "testes-completos"]]
+if tests[2]["numTotalTestSuites"] != 2 or tests[2]["numTotalTests"] != sum(
+        result["numTotalTests"] for result in tests[:2]):
+    raise RuntimeError("A suíte completa deve conter somente as duas suítes do trabalho.")
 old = (ROOT / "src/ReportGenerator.js").read_text(encoding="utf-8").splitlines()
 new = (ROOT / "src/ReportGenerator.refactored.js").read_text(encoding="utf-8").splitlines()
 WIDTH, HEIGHT = A4
@@ -35,9 +38,9 @@ BODY = ParagraphStyle("body", fontName="Arial", fontSize=10, leading=14, textCol
 SMALL = ParagraphStyle("small", parent=BODY, fontSize=8.2, leading=11)
 CELL = ParagraphStyle("cell", parent=BODY, fontSize=9.1, leading=12)
 pdf = canvas.Canvas(str(OUT), pagesize=A4)
-pdf.setTitle("Detecção de Bad Smells e Refatoração Segura - preliminar")
+pdf.setTitle("Detecção de Bad Smells e Refatoração Segura")
 pdf.setAuthor("Luidi Cadete Silva")
-pdf.setSubject("Testes de Software - PUC Minas; matrícula pendente")
+pdf.setSubject("Testes de Software - PUC Minas; Luidi Cadete Silva; matrícula 804945; 2026")
 y = 0
 
 def page(number, title=None):
@@ -48,7 +51,7 @@ def page(number, title=None):
     pdf.setFont("Arial", 8)
     pdf.drawString(LEFT, HEIGHT - 32, "PUC MINAS  |  ENGENHARIA DE SOFTWARE  |  TESTES DE SOFTWARE")
     pdf.setFont("Arial", 8)
-    pdf.drawString(LEFT, 29, "PRELIMINAR - MATRÍCULA PENDENTE - 02/11/2026")
+    pdf.drawString(LEFT, 29, "LUIDI CADETE SILVA | MATRÍCULA 804945 | 2026")
     pdf.drawRightString(RIGHT, 29, f"{number} / 4")
     y = HEIGHT - 75
     if title:
@@ -75,7 +78,8 @@ def heading(text):
 
 def table(rows, widths):
     global y
-    formatted = [[Paragraph(escape(str(cell)), CELL) for cell in row] for row in rows]
+    formatted = [[cell if isinstance(cell, Paragraph) else Paragraph(escape(str(cell)), CELL)
+                  for cell in row] for row in rows]
     t = Table(formatted, colWidths=widths, hAlign="LEFT")
     t.setStyle(TableStyle([
         ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#e5eef0")),
@@ -124,14 +128,8 @@ pdf.drawCentredString(WIDTH / 2, 465, "e Refatoração Segura")
 pdf.setFont("Arial", 13)
 pdf.drawCentredString(WIDTH / 2, 399, "Luidi Cadete Silva")
 pdf.setFont("ArialBold", 11)
-pdf.setFillColor(colors.HexColor("#9b4c18"))
-pdf.drawCentredString(WIDTH / 2, 373, "Matrícula: não fornecida")
-y = 307
-para("<b>Relatório preliminar para revisão.</b> A implementação e as evidências foram "
-     "preparadas, mas a entrega permanece pendente da matrícula e da aprovação do aluno.")
-para("O projeto original e seus testes foram preservados. A suíte original possui uma "
-     "falha comprovada; a versão refatorada atende aos cinco testes copiados, com uma "
-     "correção de formatação explicitamente autorizada.")
+pdf.setFillColor(INK)
+pdf.drawCentredString(WIDTH / 2, 373, "Matrícula: 804945")
 pdf.setFont("Arial", 11)
 pdf.setFillColor(INK)
 pdf.drawCentredString(WIDTH / 2, 109, "Novembro de 2026")
@@ -144,9 +142,9 @@ para("Objetivo: melhorar a legibilidade e a manutenção de um gerador de relat�
 heading("Bad Smells identificados manualmente")
 table([
     ["Tipo e localização", "Impacto na manutenção e nos testes"],
-    ["Método longo\ngenerateReport, linhas 11-69", "Reúne seleção, prioridade e apresentação. Dificulta localizar defeitos e compreender os cenários de teste."],
-    ["Condicionais complexas\nLaço, linhas 27-56", "Perfis, valores e formatos se cruzam em vários níveis. Aumenta a dificuldade de conferir caminhos e limites."],
-    ["Duplicação de lógica\nCSV/soma, linhas 35-37 e 46-48", "A mesma mudança precisa ser repetida em ramos diferentes, criando risco de divergência e regressão."],
+    [Paragraph("<font face='ArialBold'>Método longo</font><br/>generateReport, linhas 11-69", CELL), "Reúne seleção, prioridade e apresentação. Dificulta localizar defeitos e compreender os cenários de teste."],
+    [Paragraph("<font face='ArialBold'>Condicionais complexas</font><br/>Laço, linhas 27-56", CELL), "Perfis, valores e formatos se cruzam em vários níveis. Aumenta a dificuldade de conferir caminhos e limites."],
+    [Paragraph("<font face='ArialBold'>Duplicação de lógica</font><br/>CSV/soma, linhas 35-37 e 46-48", CELL), "A mesma mudança precisa ser repetida em ramos diferentes, criando risco de divergência e regressão."],
 ], [175, TEXT_WIDTH - 175])
 para("Achado adicional: os números 500 e 1000 foram substituídos por constantes com "
      "nomes de negócio. Esses limites merecem verificações específicas.", SMALL)
@@ -188,7 +186,7 @@ para("Preservaram-se a classe exportada, o construtor, db, generateReport e as m
      "intactos; a cópia da suíte altera exclusivamente o import.")
 pdf.showPage()
 
-page(4, "3. Validação, conclusão e pendências")
+page(4, "3. Validação e conclusão")
 rows = [["Execução real", "Aprovados", "Falhas", "Total"]]
 for label, result in zip(["Jest original", "Jest refatorado", "Jest completo"], tests):
     rows.append([label, result["numPassedTests"], result["numFailedTests"], result["numTotalTests"]])
@@ -210,17 +208,16 @@ para(f"A auditoria complementar aprovou <b>{behavior['exactComparisons']} compar
      "validada separadamente com saídas completas, sem normalização. Hashes e blobs Git "
      "confirmaram a preservação dos originais.")
 heading("Conclusão")
-para("Os testes revelaram uma inconsistência já existente na base e orientaram a correção "
-     "autorizada. A redução dos smells facilita leitura e mudanças futuras; o lint mede "
-     "parte dessa melhoria, enquanto os testes verificam comportamentos. Suítes aprovadas "
-     "aumentam a confiança, mas não provam ausência de defeitos em todas as entradas.")
-para("<b>Pendências:</b> matrícula, revisão/aprovação do aluno e alinhamento com o professor "
-     "sobre a falha original preservada. Branch publicada apenas para auditoria, sem merge "
-     "na principal. Assistência de IA (Codex) declarada; política institucional a confirmar.")
+para("A separação de responsabilidades e a redução dos smells facilitam a leitura e as "
+     "mudanças futuras. Os testes funcionaram como rede de segurança durante a refatoração "
+     "e também revelaram a inconsistência preexistente. O lint mede parte da melhoria "
+     "estrutural, enquanto os testes verificam comportamentos. Suítes aprovadas aumentam "
+     "a confiança, mas não provam ausência de defeitos em todas as entradas.")
 heading("Reprodução e referências")
 para("Ambiente: Node 24.14.1, npm 11.11.0, Jest 29.7.0, ESLint 8.57.1 e SonarJS 0.21.0. "
      "Jest requer a flag ESM; ESLint 8 foi mantido por compatibilidade com .eslintrc.json. "
-     "Manifestos, JSON e saídas completas: docs/evidencias. Implementação validada: 2383b83.", SMALL)
+     "Manifestos, JSON e saídas completas: docs/evidencias. Implementação: 2383b83. "
+     "Assistência de IA (Codex) declarada no README.", SMALL)
 para("Fork: github.com/LuidiC/bad-smells-js-refactoring<br/>"
      "Branch: trabalho/refatoracao-segura<br/>"
      "Base: github.com/CleitonSilvaT/bad-smells-js-refactoring<br/>"

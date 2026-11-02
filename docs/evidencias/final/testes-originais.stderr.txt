@@ -1,4 +1,4 @@
-(node:93376) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+(node:132080) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 FAIL tests/ReportGenerator.test.js
   ReportGenerator (Rede de Segurança)
@@ -40,6 +40,6 @@ FAIL tests/ReportGenerator.test.js
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 4 passed, 5 total
 Snapshots:   0 total
-Time:        0.389 s, estimated 1 s
+Time:        0.422 s, estimated 1 s
 Ran all test suites within paths "tests/ReportGenerator.test.js".
 Test results written to: docs\evidencias\final\testes-originais.json

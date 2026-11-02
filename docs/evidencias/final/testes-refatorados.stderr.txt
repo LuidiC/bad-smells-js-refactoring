@@ -1,18 +1,18 @@
-(node:115488) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+(node:129168) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 PASS __tests__/ReportGenerator.refactored.test.js
   ReportGenerator (Rede de Segurança)
     √ deve lidar com array de itens vazio corretamente
     Admin User
       √ deve gerar um relatório CSV completo para Admin (2 ms)
-      √ deve gerar um relatório HTML completo para Admin (com prioridade)
+      √ deve gerar um relatório HTML completo para Admin (com prioridade) (1 ms)
     Standard User
       √ deve gerar um relatório CSV filtrado para User (apenas itens <= 500)
-      √ deve gerar um relatório HTML filtrado para User (apenas itens <= 500)
+      √ deve gerar um relatório HTML filtrado para User (apenas itens <= 500) (1 ms)
 
 Test Suites: 1 passed, 1 total
 Tests:       5 passed, 5 total
 Snapshots:   0 total
-Time:        0.387 s, estimated 1 s
+Time:        0.4 s, estimated 1 s
 Ran all test suites within paths "__tests__/ReportGenerator.refactored.test.js".
 Test results written to: docs\evidencias\final\testes-refatorados.json

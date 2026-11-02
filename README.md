@@ -1,13 +1,15 @@
 # Detecção de Bad Smells e Refatoração Segura
 
-Testes de Software - Engenharia de Software, PUC Minas.
-Autor: **Luidi Cadete Silva**. Matrícula: **pendente de fornecimento**.
+Pontifícia Universidade Católica de Minas Gerais (PUC Minas).
+Curso: Engenharia de Software. Disciplina: Testes de Software.
+Autor: **Luidi Cadete Silva**. Matrícula: **804945**. Ano: **2026**.
 
-**Status: branch de desenvolvimento auditável. Entrega pendente de matrícula e aprovação.
-A suíte original contém uma falha real, preservada e documentada.**
+**Status: relatório acadêmico definitivo e evidências disponíveis na branch de desenvolvimento.
+A integração à main aguarda autorização. A falha preexistente da suíte original está documentada.**
 
 - Fork: https://github.com/LuidiC/bad-smells-js-refactoring
-- Branch: `trabalho/refatoracao-segura` (sem merge na `main`).
+- [Branch trabalho/refatoracao-segura](https://github.com/LuidiC/bad-smells-js-refactoring/tree/trabalho/refatoracao-segura) (sem merge na `main`).
+- [Código refatorado](src/ReportGenerator.refactored.js) e [cópia dos testes](__tests__/ReportGenerator.refactored.test.js).
 - Projeto-base: https://github.com/CleitonSilvaT/bad-smells-js-refactoring
 - Commit original: `39d39f9ad52c6c508239cfe0b968187ad086e654`.
 
@@ -80,7 +82,7 @@ respeitada em ADMIN; USER não ganha estilo nem mutações adicionais.
 
 - [Análise manual e situação inicial](docs/analise.md).
 - [Auditoria e matriz de requisitos](docs/auditoria.md).
-- [Relatório preliminar de quatro páginas](output/pdf/relatorio-preliminar.pdf).
+- [Relatório definitivo de quatro páginas](output/pdf/relatorio-final.pdf).
 - [Print inicial legível](docs/evidencias/baseline/eslint-antes-legivel.png).
 - `docs/evidencias/baseline/`: comandos, horários UTC, hashes, falha ESM, testes e lint iniciais.
 - `docs/evidencias/incremental/`: primeira validação da implementação.
@@ -106,8 +108,9 @@ O preset Babel já fazia parte da base e não foi acrescentado para esta soluç�
 
 `python scripts/build_report.py` regenera o PDF a partir das evidências. É necessário
 Python com ReportLab e fontes Arial/Consolas do Windows, sem novas dependências npm.
-A renderização foi conferida com Poppler. A capa declara a matrícula ausente e a versão
-preliminar: o documento não deve ser apresentado como entrega final.
+A renderização das quatro páginas foi conferida com Poppler. A capa apresenta o nome
+Luidi Cadete Silva e a matrícula 804945. O único PDF corrente é `output/pdf/relatorio-final.pdf`;
+as versões anteriores permanecem no histórico Git.
 
 ## Autoria e pendências
 
@@ -116,9 +119,10 @@ com decisões e publicação autorizadas pelo aluno. O aluno deve revisar o mate
 confirmar a política institucional antes da entrega; o PDF fornecido não traz regra
 específica de IA. Preservaram-se o histórico e a atribuição ao projeto-base.
 
-Pendências: matrícula, aprovação do aluno e tratamento acadêmico da falha original
-com o professor. Sem revisão autorizada da base pelo professor, não é possível obter
-100% dos testes originais mantendo ambos os arquivos integralmente preservados.
+A integração à `main` aguarda a auditoria independente e autorização do aluno.
+Permanece a limitação técnica de 4/5 testes originais e 9/10 testes completos aprovados.
+O tratamento acadêmico dessa falha depende de orientação do professor; não se declara
+conformidade integral com o requisito de testes. Ambos os arquivos originais estão preservados.
 
 ## Referências técnicas
 
