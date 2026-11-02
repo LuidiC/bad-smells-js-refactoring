@@ -47,7 +47,7 @@ configuração idêntico nas análises. Os resultados estão em
 | Suíte completa aprovada | 9/10; uma falha original | Não atendido na base preservada |
 | PDF de 2-4 páginas | Quatro páginas, evidências reais, antes/depois e conclusão | Preliminar |
 | Capa completa | Nome, título e disciplina; matrícula ausente | Pendente de matrícula |
-| Publicação no fork | Branch autorizada; conferir remoto após push | Em verificação |
+| Publicação no fork | Branch publicada e consultada pelo plugin GitHub; main permanece em 39d39f9 | Atendido |
 | Entrega final aprovada | Não apresentada como concluída | Pendente de aprovação |
 
 ## Limitações e decisões
@@ -58,3 +58,18 @@ Não se desativaram regras, não se excluíram testes nem se alteraram expectati
 O ESLint 8 é legado e emite aviso na instalação; não se aplicou audit fix --force.
 A assistência de IA foi declarada no README. O relatório permanece preliminar até
 receber matrícula e aprovação do aluno.
+
+## Auditoria de publicação e reprodução
+
+O plugin GitHub confirmou a branch publicada em `77bd637` e a main preservada em
+`39d39f9`; o arquivo refatorado remoto foi conferido (blob `31bd4a3`).
+Uma cópia limpa independente instalou 423 pacotes com `npm ci --offline` e reproduziu
+5/5 testes refatorados, 4/5 originais e zero erros de lint no refatorado. A primeira
+cópia temporária aninhada herdou a configuração ESLint do diretório pai e gerou
+conflito de plugins; o ensaio foi refeito fora dessa árvore, sem mudar a configuração
+utilizada nas medições. Não era um defeito da refatoração.
+
+`.gitattributes` define PDF e PNG como binários para preservar seus bytes entre
+checkouts. A revisão incluiu arquivos publicados, integridade dos originais, ausência
+de credenciais nos novos textos e exclusão de node_modules, caches e temporários.
+O relatório foi renderizado com Poppler e as quatro páginas foram inspecionadas.

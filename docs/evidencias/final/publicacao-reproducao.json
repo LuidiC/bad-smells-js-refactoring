@@ -1,0 +1,29 @@
+{
+  "source": "GitHub plugin branches and fetch_file; clean-clone command execution",
+  "verifiedDevelopmentCommit": "77bd637f2def18edea4df203841f742e9db93626",
+  "mainCommit": "39d39f9ad52c6c508239cfe0b968187ad086e654",
+  "remoteRefactoredBlob": "31bd4a3cefc4b05bde2b4184e87491c8dfef9454",
+  "cleanClone": {
+    "npmCiOffline": {
+      "exitCode": 0,
+      "packagesInstalled": 423
+    },
+    "refactoredTests": {
+      "passed": 5,
+      "failed": 0,
+      "exitCode": 0
+    },
+    "originalTests": {
+      "passed": 4,
+      "failed": 1,
+      "exitCode": 1
+    },
+    "refactoredLint": {
+      "errors": 0,
+      "warnings": 0,
+      "exitCode": 0
+    }
+  },
+  "reportPages": 4,
+  "reportStatus": "preliminar: matrícula ausente e aprovação pendente"
+}
