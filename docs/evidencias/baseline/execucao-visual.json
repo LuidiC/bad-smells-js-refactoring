@@ -1,0 +1,7 @@
+{
+  "command": "npx eslint src/",
+  "startedAt": "2026-11-02T21:08:59.097Z",
+  "finishedAt": "2026-11-02T21:09:01.229Z",
+  "exitCode": 1,
+  "method": "Página HTTP local que executa o comando e exibe stdout/stderr sem alterar seu conteúdo."
+}
