@@ -4,12 +4,14 @@ Pontifícia Universidade Católica de Minas Gerais (PUC Minas).
 Curso: Engenharia de Software. Disciplina: Testes de Software.
 Autor: **Luidi Cadete Silva**. Matrícula: **804945**. Ano: **2026**.
 
-**Status: relatório acadêmico definitivo e evidências disponíveis na branch de desenvolvimento.
-A integração à main aguarda autorização. A falha preexistente da suíte original está documentada.**
+**Status: código, testes, relatório acadêmico definitivo e evidências publicados na `main`.
+A falha preexistente da suíte original está documentada.**
 
 - Fork: https://github.com/LuidiC/bad-smells-js-refactoring
-- [Branch trabalho/refatoracao-segura](https://github.com/LuidiC/bad-smells-js-refactoring/tree/trabalho/refatoracao-segura) (sem merge na `main`).
-- [Código refatorado](src/ReportGenerator.refactored.js) e [cópia dos testes](__tests__/ReportGenerator.refactored.test.js).
+- [Main - entrega do trabalho](https://github.com/LuidiC/bad-smells-js-refactoring/tree/main).
+- **Entregável 1 - código:** [implementação refatorada](src/ReportGenerator.refactored.js) e [cópia dos testes](__tests__/ReportGenerator.refactored.test.js), com os originais preservados.
+- **Entregável 2 - relatório:** [PDF acadêmico definitivo](output/pdf/relatorio-final.pdf), com quatro páginas.
+- [Branch de desenvolvimento auditada](https://github.com/LuidiC/bad-smells-js-refactoring/tree/trabalho/refatoracao-segura).
 - Projeto-base: https://github.com/CleitonSilvaT/bad-smells-js-refactoring
 - Commit original: `39d39f9ad52c6c508239cfe0b968187ad086e654`.
 
@@ -19,7 +21,7 @@ Ambiente verificado: Node.js 24.14.1, npm 11.11.0 e Windows.
 ESLint 8.57.1, SonarJS 0.21.0 e Jest 29.7.0 estão fixados; o lockfile registra as dependências transitivas.
 
 ```bash
-git clone --branch trabalho/refatoracao-segura https://github.com/LuidiC/bad-smells-js-refactoring.git
+git clone --branch main https://github.com/LuidiC/bad-smells-js-refactoring.git
 cd bad-smells-js-refactoring
 npm ci
 npm run test:original
@@ -119,7 +121,9 @@ com decisões e publicação autorizadas pelo aluno. O aluno deve revisar o mate
 confirmar a política institucional antes da entrega; o PDF fornecido não traz regra
 específica de IA. Preservaram-se o histórico e a atribuição ao projeto-base.
 
-A integração à `main` aguarda a auditoria independente e autorização do aluno.
+A auditoria independente foi aprovada e a integração à `main` foi autorizada pelo aluno.
+O commit aprovado `45555e2581125a6efb9a05e92df5cb87ab9dd047` foi integrado por fast-forward,
+preservando o histórico; os ajustes posteriores se limitam à documentação de publicação.
 Permanece a limitação técnica de 4/5 testes originais e 9/10 testes completos aprovados.
 O tratamento acadêmico dessa falha depende de orientação do professor; não se declara
 conformidade integral com o requisito de testes. Ambos os arquivos originais estão preservados.

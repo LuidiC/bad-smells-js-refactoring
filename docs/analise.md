@@ -65,4 +65,5 @@ páginas e matrícula 804945. A evidência inicial foi preservada na forma audit
 sem simular uma captura de terminal ou reconstruir os resultados.
 O trabalho não satisfaz a exigência de 100% dos testes originais, por defeito preexistente;
 o tratamento dessa limitação depende de orientação do professor.
-A branch está publicada e aguarda autorização para integração à principal.
+A entrega está publicada na `main`, após integração por fast-forward do commit aprovado
+`45555e2581125a6efb9a05e92df5cb87ab9dd047`. O histórico e as evidências foram preservados.

@@ -31,7 +31,7 @@ configuração idêntico nas análises. Os resultados estão em
 | Exigência | Implementação/evidência | Situação |
 | --- | --- | --- |
 | Fork real e histórico original | Fork LuidiC; commits originais ancestrais | Atendido |
-| Branch de desenvolvimento | trabalho/refatoracao-segura; sem merge | Atendido |
+| Branch de desenvolvimento | trabalho/refatoracao-segura preservada no commit aprovado | Atendido |
 | Ambiente compatível | Versões fixadas, lockfile e flag ESM | Atendido |
 | Originais preservados | Hashes e blobs Git | Atendido |
 | Pelo menos três smells | Método longo, condicionais complexas, duplicação; adicional: números mágicos | Atendido |
@@ -47,8 +47,8 @@ configuração idêntico nas análises. Os resultados estão em
 | Suíte completa aprovada | 9/10; uma falha original | Não atendido na base preservada |
 | PDF de 2-4 páginas | output/pdf/relatorio-final.pdf; quatro páginas, evidências reais, antes/depois e conclusão | Atendido |
 | Capa completa | Instituição, curso, disciplina, título, Luidi Cadete Silva, matrícula 804945 e ano 2026 | Atendido |
-| Publicação no fork | Branch publicada e consultada pelo plugin GitHub; main permanece em 39d39f9 | Atendido |
-| Integração na main | Mantida na branch de desenvolvimento | Aguarda auditoria independente e autorização |
+| Publicação no fork | Código, testes, PDF definitivo e evidências na main | Atendido |
+| Integração na main | Fast-forward do commit 45555e2, após auditoria independente e autorização | Atendido |
 
 ## Limitações e decisões
 
@@ -61,7 +61,7 @@ A limitação da suíte original permanece explícita, sem declaração de confo
 
 ## Auditoria de publicação e reprodução
 
-O plugin GitHub confirmou a branch publicada em `77bd637` e a main preservada em
+Na auditoria anterior à integração, o plugin GitHub confirmou a branch em `77bd637` e a main em
 `39d39f9`; o arquivo refatorado remoto foi conferido (blob `31bd4a3`).
 Uma cópia limpa independente instalou 423 pacotes com `npm ci --offline` e reproduziu
 5/5 testes refatorados, 4/5 originais e zero erros de lint no refatorado. A primeira
@@ -94,5 +94,18 @@ cópia temporária da auditoria anterior estava duplicando a descoberta de teste
 ela foi removida e os comandos foram repetidos sem alterações de configuração.
 
 A lógica de produção, os testes e suas expectativas permaneceram inalterados nesta
-etapa. A integração à main aguarda autorização após a auditoria independente.
+etapa. A integração à main foi autorizada após a auditoria independente da versão definitiva.
 A limitação acadêmica dos testes originais permanece dependente de orientação do professor.
+
+## Integração final na main
+
+O commit aprovado `45555e2581125a6efb9a05e92df5cb87ab9dd047` foi integrado por
+fast-forward, preservando todos os commits. Antes da integração, confirmou-se a
+ausência de alterações locais, a main na base `39d39f9`, a integridade dos originais
+e o PDF aprovado com quatro páginas e o mesmo SHA-256 registrado.
+
+Após a integração, somente README e documentos de análise/auditoria foram ajustados
+para indicar a publicação na main. Código original, código refatorado, ambas as
+suítes, configuração de lint, PDF e evidências permanecem idênticos ao aprovado.
+Os resultados registrados continuam sendo 4/5 testes originais, 5/5 refatorados,
+9/10 na suíte completa e zero erros/avisos de ESLint no refatorado.
