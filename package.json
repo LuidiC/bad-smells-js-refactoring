@@ -7,7 +7,11 @@
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "test:original": "npm test -- --runInBand --runTestsByPath tests/ReportGenerator.test.js",
-    "lint": "eslint src/"
+    "test:refactored": "npm test -- --runInBand --runTestsByPath __tests__/ReportGenerator.refactored.test.js",
+    "lint": "eslint src/",
+    "lint:refactored": "eslint src/ReportGenerator.refactored.js",
+    "audit:behavior": "node scripts/audit-behavior.mjs",
+    "audit:quality": "node scripts/audit-quality.mjs"
   },
   "keywords": [
     "refactoring",
