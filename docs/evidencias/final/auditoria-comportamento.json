@@ -1,0 +1,16 @@
+{
+  "exactComparisons": 321,
+  "additionalChecks": [
+    "Construtor mantém db",
+    "HTML corrigido validado integralmente",
+    "HTML original divergente validado integralmente",
+    "Mutações equivalentes na exceção",
+    "Limites 500/501 e 1000/1001",
+    "Prioridade preexistente",
+    "Formato e perfil desconhecidos",
+    "Arrays vazios e múltiplos itens"
+  ],
+  "normalizationApplied": false,
+  "originalTestsModified": false,
+  "result": "passed"
+}

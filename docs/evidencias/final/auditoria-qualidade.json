@@ -1,0 +1,65 @@
+{
+  "protectedFilesUnchanged": [
+    "src/ReportGenerator.js",
+    "tests/ReportGenerator.test.js"
+  ],
+  "testCopyOnlyImportChanged": true,
+  "sameLintConfiguration": true,
+  "official": [
+    {
+      "path": "src/ReportGenerator.js",
+      "errors": 2,
+      "warnings": 0,
+      "rules": [
+        "sonarjs/cognitive-complexity",
+        "sonarjs/no-collapsible-if"
+      ]
+    },
+    {
+      "path": "src/ReportGenerator.refactored.js",
+      "errors": 0,
+      "warnings": 0,
+      "rules": []
+    }
+  ],
+  "diagnostic": [
+    {
+      "path": "src/ReportGenerator.js",
+      "functions": [
+        {
+          "line": 11,
+          "complexity": 27
+        }
+      ]
+    },
+    {
+      "path": "src/ReportGenerator.refactored.js",
+      "functions": [
+        {
+          "line": 4,
+          "complexity": 2
+        },
+        {
+          "line": 14,
+          "complexity": 2
+        },
+        {
+          "line": 19,
+          "complexity": 2
+        },
+        {
+          "line": 25,
+          "complexity": 5
+        },
+        {
+          "line": 36,
+          "complexity": 2
+        },
+        {
+          "line": 47,
+          "complexity": 5
+        }
+      ]
+    }
+  ]
+}

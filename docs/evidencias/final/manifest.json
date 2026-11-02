@@ -1,0 +1,75 @@
+{
+  "phase": "final",
+  "node": "v24.14.1",
+  "platform": "win32",
+  "referenceCommit": "2383b8303b3da673f9221946ef700ba8267063c1",
+  "files": [
+    {
+      "path": "src/ReportGenerator.js",
+      "sha256": "e3aaaf125fc846de0be4be873db63a6d17b020cab8446e82debb3f26a0a386a8"
+    },
+    {
+      "path": "tests/ReportGenerator.test.js",
+      "sha256": "fffa6aa1599b399af1d52abd192370c7d80158e08c3ee02f4c95b18bc0ae97da"
+    },
+    {
+      "path": ".eslintrc.json",
+      "sha256": "fb174c745841069b4d9b34ccff00ddb845f5e3f9e12ab475d681146786ef1983"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "dd054311c3ace551050545afc49190e8d25b5610e45f8f96b03ebe1a24cb630a"
+    }
+  ],
+  "results": [
+    {
+      "name": "testes-refatorados",
+      "command": "node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand --runTestsByPath __tests__/ReportGenerator.refactored.test.js --json --outputFile docs/evidencias/final/testes-refatorados.json",
+      "startedAt": "2026-11-02T21:12:37.184Z",
+      "finishedAt": "2026-11-02T21:12:38.283Z",
+      "exitCode": 0
+    },
+    {
+      "name": "testes-originais",
+      "command": "node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand --runTestsByPath tests/ReportGenerator.test.js --json --outputFile docs/evidencias/final/testes-originais.json",
+      "startedAt": "2026-11-02T21:12:38.284Z",
+      "finishedAt": "2026-11-02T21:12:39.398Z",
+      "exitCode": 1
+    },
+    {
+      "name": "testes-completos",
+      "command": "node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand --json --outputFile docs/evidencias/final/testes-completos.json",
+      "startedAt": "2026-11-02T21:12:39.398Z",
+      "finishedAt": "2026-11-02T21:12:40.880Z",
+      "exitCode": 1
+    },
+    {
+      "name": "eslint-original",
+      "command": "node node_modules/eslint/bin/eslint.js src/ReportGenerator.js",
+      "startedAt": "2026-11-02T21:12:40.880Z",
+      "finishedAt": "2026-11-02T21:12:41.452Z",
+      "exitCode": 1
+    },
+    {
+      "name": "eslint-original-json",
+      "command": "node node_modules/eslint/bin/eslint.js src/ReportGenerator.js --format json --output-file docs/evidencias/final/eslint-original.json",
+      "startedAt": "2026-11-02T21:12:41.452Z",
+      "finishedAt": "2026-11-02T21:12:41.972Z",
+      "exitCode": 1
+    },
+    {
+      "name": "eslint-refatorado",
+      "command": "node node_modules/eslint/bin/eslint.js src/ReportGenerator.refactored.js",
+      "startedAt": "2026-11-02T21:12:41.972Z",
+      "finishedAt": "2026-11-02T21:12:42.569Z",
+      "exitCode": 0
+    },
+    {
+      "name": "eslint-refatorado-json",
+      "command": "node node_modules/eslint/bin/eslint.js src/ReportGenerator.refactored.js --format json --output-file docs/evidencias/final/eslint-refatorado.json",
+      "startedAt": "2026-11-02T21:12:42.569Z",
+      "finishedAt": "2026-11-02T21:12:43.107Z",
+      "exitCode": 0
+    }
+  ]
+}
